@@ -1,4 +1,4 @@
-const categoryModel = require("../../models/CategoryModel");
+const categoryModel = require("../../models/categoryModel");
 const colorModel = require("../../models/colorModel");
 const materialModel = require("../../models/materialModel");
 const productModel = require("../../models/productModel");
