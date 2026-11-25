@@ -1,4 +1,4 @@
-const categoryModel = require("../../models/CategoryModel");
+const categoryModel = require("../../models/categoryModel");
 const subCategoryModel = require("../../models/subCategoryModel");
 const subSubCategoryModel = require("../../models/subSubCategoryModel");
 
