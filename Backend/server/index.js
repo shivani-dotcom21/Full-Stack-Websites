@@ -32,7 +32,11 @@ app.use("/web", webRoutes); // Api Website Routes Call
 //     });
 //   });
 
-const mongoUri = `${process.env.CONNECTIONURL}${process.env.CONNECTIONURL?.endsWith("/") ? "" : "/"}${process.env.DBNAME}`;
+// const mongoUri = `${process.env.CONNECTIONURL}${process.env.CONNECTIONURL?.endsWith("/") ? "" : "/"}${process.env.DBNAME}`;
+
+const baseUrl = (process.env.CONNECTIONURL || "").replace(/\/+$/, "");
+const dbName = process.env.DBNAME || "";
+const mongoUri = `${baseUrl}/${dbName}`;
 
 mongoose
   .connect(mongoUri)
