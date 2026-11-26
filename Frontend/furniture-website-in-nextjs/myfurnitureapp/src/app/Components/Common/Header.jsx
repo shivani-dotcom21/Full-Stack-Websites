@@ -185,7 +185,7 @@ export default function Header() {
                     >
                       <div className="flex items-center gap-2">
                         <img
-                          src={`http://localhost:8000/${item.productImage}`}
+                          src={`https://server-lyart-zeta.vercel.app/${item.productImage}`}
                           alt={item.title || item.name}
                           className="w-12 h-12 object-cover rounded"
                         />

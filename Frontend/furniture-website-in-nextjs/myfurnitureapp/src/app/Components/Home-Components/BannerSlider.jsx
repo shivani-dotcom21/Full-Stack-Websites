@@ -15,7 +15,7 @@ export default function DynamicSlider() {
   useEffect(() => {
     async function fetchSliders() {
       try {
-        const response = await fetch("http://localhost:8000/web/sliders"); // Apne backend ka URL yahan dein
+        const response = await fetch(`${process.env.NEXT_PUBLIC_APIBASEURL}sliders`); // Apne backend ka URL yahan dein
         const data = await response.json();
 
         if (data.success) {
@@ -53,7 +53,7 @@ export default function DynamicSlider() {
               <div key={slide._id} className="w-full h-full relative">
                 <SwiperSlide>
                   <img
-                    src={`http://localhost:8000/${slide.imageUrl}`}
+                    src={`https://server-lyart-zeta.vercel.app/${slide.imageUrl}`}
                     alt={slide.title || "Slider Image"}
                     className="w-full h-full object-cover"
                   />

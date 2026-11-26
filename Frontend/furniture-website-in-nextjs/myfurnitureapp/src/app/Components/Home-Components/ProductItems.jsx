@@ -13,7 +13,7 @@ export default function ProductItems() {
       setLoading(true);
       try {
         let response = await fetch(
-          `http://localhost:8000/web/type/${activeTab}`,
+          `${process.env.NEXT_PUBLIC_APIBASEURL}type/${activeTab}`,
         );
         let data = await response.json();
         if (data.success || data.status) {
@@ -79,7 +79,7 @@ export default function ProductItems() {
                 {/* Dynamic Product Image */}
                 <figure className="relative overflow-hidden">
                   <img
-                    src={`http://localhost:8000/${item.productImage}`}
+                    src={`https://server-lyart-zeta.vercel.app/${item.productImage}`}
                     alt={item.title || item.name}
                     className="w-full h-[200px] object-cover hover:scale-105 duration-200 ease-in-out"
                   />

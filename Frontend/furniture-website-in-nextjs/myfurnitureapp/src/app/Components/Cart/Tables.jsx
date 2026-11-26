@@ -97,7 +97,7 @@ export default function CartPage() {
                 <tr className="border-b border-gray-300 text-center ">
                   <td className="p-1 border-b border-l border-gray-300 w-[100px] h-[50px] ">
                     <img
-                      src={`http://localhost:8000/${item.productImage}`}
+                      src={`https://server-lyart-zeta.vercel.app/${item.productImage}`}
                       alt={item.title || item.name}
                       className="w-full h-fit cursor-pointer"
                     />

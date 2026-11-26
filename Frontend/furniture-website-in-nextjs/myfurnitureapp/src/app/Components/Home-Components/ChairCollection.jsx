@@ -11,7 +11,7 @@ export default function ChairCollection() {
     async function fetchChairCollection() {
       try {
         const response = await fetch(
-          "http://localhost:8000/web/chairCollection",
+         `${process.env.NEXT_PUBLIC_APIBASEURL}chairCollection`,
         ); // Apne backend ka URL yahan dein
         const data = await response.json();
 
@@ -44,7 +44,7 @@ export default function ChairCollection() {
                 <div className="relative overflow-hidden">
                   <figure className="w-[300px] h-[300px] relative overflow-hidden">
                     <img
-                      src={`http://localhost:8000/${item.imageUrl}`}
+                      src={`https://server-lyart-zeta.vercel.app/${item.imageUrl}`}
                       alt={item.title || "Chair Collection Image"}
                       className="w-full lg:w-[300px] h-full hover:scale-110 duration-200 ease-in-out"
                     />
