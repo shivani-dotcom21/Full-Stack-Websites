@@ -24,10 +24,29 @@ app.use("/admin", adminRoutes); // Api Admin Routes Call
 app.use("/web", webRoutes); // Api Website Routes Call
 
 //Server Connect + DB Connect , Both are in one
+// mongoose
+//   .connect(`${process.env.CONNECTIONURL + process.env.DBNAME}`) //Promises
+//   .then((res) => {
+//     app.listen(8000, () => {
+//       console.log("server start");
+//     });
+//   });
+
+const mongoUri = `${process.env.CONNECTIONURL}${process.env.CONNECTIONURL?.endsWith("/") ? "" : "/"}${process.env.DBNAME}`;
+
 mongoose
-  .connect(`${process.env.CONNECTIONURL + process.env.DBNAME}`) //Promises
-  .then((res) => {
-    app.listen(8000, () => {
-      console.log("server start");
-    });
+  .connect(mongoUri)
+  .then(() => {
+    console.log("DB connected");
+  })
+  .catch((err) => {
+    console.error("DB connection error:", err);
   });
+
+if (!process.env.VERCEL) {
+  app.listen(8000, () => {
+    console.log("server start");
+  });
+}
+
+module.exports = app; // Agar file mein upar `require` use ho raha hai, to is line ko hata kar `module.exports = app;` likhna
